@@ -1,4 +1,4 @@
-FROM golang:1.18-buster AS build
+FROM golang:1.18-alpine
 
 WORKDIR /app
 
@@ -8,16 +8,13 @@ RUN go mod download
 
 COPY *.go ./
 
+ENV GOPROXY https://goproxy.cn
+
+
 RUN go build -o /web-service-gin
 
 ## Deploy
 
-FROM gcr.io/distroless/base-debian10:debug
-
-WORKDIR /
-
-COPY --from=build /web-service-gin /web-service-gin
-
 EXPOSE 8080
 
-ENTRYPOINT ["/web-service-gin"]
+CMD [ "/web-service-gin" ]
