@@ -8,7 +8,7 @@ RUN go mod download
 
 COPY *.go ./
 
-ENV GOPROXY https://goproxy.cn
+ENV GOPROXY=https://goproxy.cn,direct
 
 
 RUN go build -o /web-service-gin
