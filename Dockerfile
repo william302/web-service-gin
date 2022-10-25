@@ -14,7 +14,7 @@ RUN go build -o /web-service-gin
 
 ## Deploy
 
-FROM gcr.io/distroless/base-debian10:debug
+FROM registry.cn-hangzhou.aliyuncs.com/launcher/alpine:latest
 
 WORKDIR /
 
