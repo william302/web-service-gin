@@ -28,6 +28,7 @@ func main() {
 	router.POST("/albums", postAlbums)
 
 	router.Run("localhost:8080")
+
 }
 
 // getAlbums responds with the list of all albums as JSON.
